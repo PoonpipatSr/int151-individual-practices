@@ -83,43 +83,21 @@
 // sum(1, 2)
 // sum()
 
-// function greeting(greet = "Hello", whom = "Guest", quote = "How are you?") {
-//     return `${greet} ${whom} ${quote}`
-// }
-
-// console.log(greeting("hi")) // Hello Guest How are you?
-// console.log(greeting("Good morning", "Guy", "Great!")) // Good morning Guy Great!
-// console.log(greeting(undefined, null, "Fine")) // Hello null Fine
-// console.log(greeting()) // Hello Guest How are you?
-
-// function sum(num1, num2, num3) {
-//     console.log(num1);
-//     console.log(num2);
-//     console.log(num3);
-//     return num1 + num2 + num3
-// }
-
-// let nums = [5]
-// console.log(sum(10, 20, 30));
-
-function getFreqOfWords(sentence) {
-    if (sentence === null || sentence === undefined)
-        return undefined
-    else {
-        let x = sentence.split(' ')
-        for (let i of x) {
-            let count = 0
-            for (let j of x) {
-                if (i === j) {
-                    count += 1
-                }
-            }
-            i[j] = value
-        }
-    }
+function greeting(greet = "Hello", whom = "Guest", quote = "How are you?") {
+    return `${greet} ${whom} ${quote}`
 }
 
-console.log(getFreqOfWords('Today is present and present is your gift gift'));
-console.log(getFreqOfWords('Do you best just do it'));
-console.log(getFreqOfWords(null));
-console.log(getFreqOfWords(undefined));
+console.log(greeting("hi")) // Hello Guest How are you?
+console.log(greeting("Good morning", "Guy", "Great!")) // Good morning Guy Great!
+console.log(greeting(undefined, null, "Fine")) // Hello null Fine
+console.log(greeting()) // Hello Guest How are you?
+
+function sum(num1, num2, num3) {
+    console.log(num1);
+    console.log(num2);
+    console.log(num3);
+    return num1 + num2 + num3
+}
+
+let nums = [5]
+console.log(sum(10, 20, 30));

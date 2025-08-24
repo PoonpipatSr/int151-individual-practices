@@ -1,0 +1,27 @@
+// Write a function getFreqOfWords(sentence) that returns an object with keys representing unique words in lowercase 
+// and values representing the frequency of occurrences of each word with ignore case in the sentence. 
+// If the input string is null or undefined, return undefined.
+
+function getFreqOfWords(sentence) {
+    if (sentence === null || sentence === undefined) {
+        return undefined       <- เขียนเช็คเงื่อนไขถ้า parameter ที่ได้รับมาเป็นค่า null หรือ undefined ให้คืนค่าเป็น undefined ทันทีตามโจทย์
+    }
+
+    let words = sentence.toLowerCase().split(' ')   <- ใช้ method ในการสั่งให้ค่าเปลี่ยนเป็นเป็นตัวพืมพ์เล้กทั้งหมดและแยกออกจากกันเป็น arr ถ้าเจอ space
+    let temp = {}   <- กำหนดค่า temporary เพื่อเตรียมพร้อมสำหรับการนำค่าที่ได้มาจากการเขียนเช็คมาใส่
+
+    for (let w of words) {
+        if (temp[w]) {    <- ถ้าเป็นตัวมันเองเช่น ถ้าปัจจุบันอยู่ที่ค่า today และมันเจอตัวเดียวกันก็จะนับจำนวนเพิ่ม 1 ตัว 
+            temp[w] += 1
+        } 
+        else {
+            temp[w] = 1  <- แต่ถ้าไม่ แสดงว่าตัวนั้นเพิ่งเคยเจอครั้งแรก ก็จะกำหนดค่าให้มันเป็น 1 เพื่อบอกว่ามันเกิดมาแล้วนะ
+        }
+    }
+    return temp    <- ถ้าใส่ค่าเข้าไปใน obj เรียบร้อยหมดแล้วก็ทำการ return ค่าออกจาก function เพื่อแสดงผล
+}
+
+console.log(getFreqOfWords('Today is present and present is your gift gift')) // { today: 1, is: 2, present: 2, and: 1, your: 1, gift: 2 }
+console.log(getFreqOfWords('Do you best just do it')) // { do: 2, you: 1, best: 1, just: 1, it: 1 }
+console.log(getFreqOfWords(null))        // undefined
+console.log(getFreqOfWords(undefined))   // undefined
