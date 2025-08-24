@@ -1,1 +1,28 @@
-ได้ทบทวนเรื่องของการใช้ arr method, ทบทวนการใช้ loop ค่าใน arr ออกมาใช้งาน และ ได้ทบทวนเรื่องของการใช้ if else condition
+function longestWord(sentence) { 
+  if (sentence === undefined || sentence === null || typeof sentence !== "string" || sentence.length === 0) {
+    return ""    <- สร้าง condition เช็คก่อนเลยว่าถ้า มันติดค่าใดๆที่ต้อง return เป็น empty string ให้มัน return เลย จะได้กรองข้อมูลให้เหลือไม่เยอะ
+  }
+  else {
+    let word = sentence.split(' '); <- ทำการแบ่งคำที่ได้มาให้เป็น array โดยใช้ space เป็นตัวแบ่ง 
+    let temp = '' <- สร้างเอาไว้เพื่อเก็บไว้เป็นค่าเป็น temporary ไว้สำหรับรอใส่ค่าที่เหมาะสมกว่า
+    for (let v of word) {
+      if (v.length > temp.length) {
+        temp = v;                        <- loop หาค่าว่า string ตัวไหนมีความยาวมากที่สุด โดยใช้ method length เพื่อดึงค่าความยาวออกมา
+      }
+    }
+    return temp  <- เมื่อสิ้นสุดการ loop ตัวสุดท้ายที่เหลือรอด คือคำตอบว่ามันคือ string ที่มีความยาวที่สุด และ return ค่าออก function เพื่อนำไปใช้ต่อไป 
+  }
+}
+
+
+// test case ที่เอามาจากไฟล์ของอาจารย์คับบ
+
+console.log(longestWord('The quick brown fox jumped over the lazy dog')); // jumped
+console.log(longestWord('Well, this test-case is tricky!')); // test-case
+console.log(longestWord('JavaScript is super fun and powerful')); // JavaScript
+console.log(longestWord('Hi')); // Hi
+console.log(longestWord('')); // empty string
+console.log(longestWord(undefined)); // empty string
+console.log(longestWord(null)); // empty string
+console.log(longestWord(12345)); // empty string
+console.log(longestWord(['not', 'a', 'string'])); // empty string
