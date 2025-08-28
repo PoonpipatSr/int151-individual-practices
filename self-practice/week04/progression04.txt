@@ -1,0 +1,33 @@
+class Book {
+  constructor(id, title, author = "", yearPublished = null) {     => ตั้งค่า default value ตามที่โจทย์สั่ง
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.yearPublished = yearPublished;
+    this.isAvailable = true;
+    if (this.id.length === 0 || this.title.length === 0) {
+      throw ("Book must have id and title");                       => สร้าง condition เช็คว่า id กับ title มันมีข้อมูลที่ถุกส่งมารึป่าว
+    }
+  }
+
+  getInfo() {
+    return (`${this.title} by ${this.author} (${this.yearPublished})`)    => method นี้สร้างขึ้นมาเพื่อส่งค่าของข้อความที่รวมกันแล้วดังกล่าว เมื่อถูกเรียก a.getInfo()
+  }
+
+  toggleAvailability() {
+    return this.isAvailable ? this.isAvailable = false : this.isAvailable = true; => method นี้จะเปลี่ยนค่า true false โดยใช้ teternary operator
+                                                                                    หลัง ? คือ true ดังนั้นจึง set ค่า isAvailable ให้เป็น false และ 
+                                                                                    หลัง : คือ false ดังนั้นจึง set ค่าให้เป็น true
+                                                                                    แต่เราสามารถเขียนให้ง่ายได้โดย this.isAvailable = !this.isAvailable
+                                                                                    ก็คือใช้ ! สำหรับคืนค่าที่ตรงข้าม เนื่องจาก boolean มีแค่ 2 ค่าคือ true กับ false
+                                                                                    ดังนั้น เมื่อใส่ ! เข้าไปค่าจะเป็นตรงข้ามทันที
+  }
+
+}
+module.exports = { Book }
+// Example usage:
+const book1 = new Book('B1', 'Clean Code', 'Robert C. Martin', 2008)
+console.log(book1.getInfo()) // "Clean Code by Robert C. Martin (2008)"
+console.log(book1.isAvailable) // true
+book1.toggleAvailability()
+console.log(book1.isAvailable) // false
