@@ -23,15 +23,15 @@
 // console.log(words);
 // console.log(sortedWord);
 
-// const words = ['mango', 'apple', 'mangosteen', 'orange']
-// const uppercase = words.map(word => word.toUpperCase())
-// console.log(uppercase);
+const words = ['mango', 'apple', 'mangosteen', 'orange']
+const uppercase = words.map(word => word.toUpperCase())
+console.log(uppercase);
 
-// const students = [
-//   { id: 1, name: "Somchai Jaidee" },
-//   { id: 2, name: "Suda Deejai" },
-//   { id: 3, name: "John Smith" },
-// ]
+const students = [
+  { id: 1, name: "Somchai Jaidee" },
+  { id: 2, name: "Suda Deejai" },
+  { id: 3, name: "John Smith" },
+]
 
 // console.log(students.map(student => student.id).filter(id => id % 2 === 0));
 
@@ -90,10 +90,10 @@
 // console.log(words1);
 
 
-const words1 = ["Mango", "Apple", "mangosteen", "orange", "mangoes"]
-// slice items at index 2 to last
-console.log(words1.slice(2));
-// slice the first to third items
-console.log(words1.slice(0, 3));
-// fill null to all items
-console.log(words1.fill(null));
+// const words1 = ["Mango", "Apple", "mangosteen", "orange", "mangoes"]
+// // slice items at index 2 to last
+// console.log(words1.slice(2));
+// // slice the first to third items
+// console.log(words1.slice(0, 3));
+// // fill null to all items
+// console.log(words1.fill(null));
